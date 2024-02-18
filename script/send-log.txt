@@ -1,0 +1,18 @@
+# This script sends log to an email
+#
+# Required permissions:
+#
+# [x] ftp        [x] write
+# [x] read       [x] test
+#
+
+/log print file=logs.txt
+
+:delay;
+
+:local currentDateTime;
+:local currentDate [/system clock get date];
+:local currentTime [/system clock get time];
+:set currentDateTime ($currentDate . " " . $currentTime);
+
+/tool e-mail send to="your_email@gmail.com" subject="$[/system identity get name]  logs" body="$currentDateTime -  log file" file=logs.txt

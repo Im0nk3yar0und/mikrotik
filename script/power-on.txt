@@ -1,0 +1,15 @@
+# This script sends an email when router power_on after power_lost
+#
+# Required permissions:
+#
+#  [x] read
+#  [x] test
+#
+
+:local currentDateTime;
+:local currentDate [/system clock get date];
+:local currentTime [/system clock get time];
+:set currentDateTime ($currentDate . " " . $currentTime);
+
+
+/tool e-mail send to="your_email@gmail.com" subject="$[/system identity get name]  - Power On" body="Mikrotik is now powered on ! - $currentDateTime"
