@@ -1,0 +1,2 @@
+/system logging action set memory memory-lines=1
+/system logging action set memory memory-lines=5000
